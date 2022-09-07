@@ -6,8 +6,9 @@ export class Event extends Document {
 	@Prop()
 	type: string;
 
-	@Prop()
+	@Prop( { index: true })
 	name: string;
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);
+EventSchema.index({ name: 1, type: -1 });
